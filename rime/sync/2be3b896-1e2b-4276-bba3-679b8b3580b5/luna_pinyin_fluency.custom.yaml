@@ -1,0 +1,41 @@
+# 朙月拼音·語句
+
+patch:
+  schema:
+    schema_id: luna_pinyin_fluency
+    name: 朙月拼音·語句
+    dependencies:
+      - stroke
+
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中文, 西文 ]
+    - name: full_shape
+      states: [ 半角, 全角 ]
+    - name: simplification
+      states: [ 漢字, 汉字 ]
+
+  translator:
+    dictionary: xoox #luna_pinyin.extended #luna_pinyin
+    prism: luna_pinyin_fluency
+    preedit_format:
+      - xform/([nl])v/$1ü/
+      - xform/([nl])ue/$1üe/
+      - xform/([jqxy])v/$1u/
+
+  punctuator:
+    import_preset: alternative
+
+  key_binder:
+    import_preset: default
+    bindings:
+      - { when: always, accept: Shift+space, toggle: full_shape }
+      - { when: always, accept: Control+Shift+space, toggle: simplification }
+
+  recognizer:
+    import_preset: default
+    patterns:
+      number: '^[-+]?[0-9][.:0-9]*[%]?$'
+      punct: '^ii([0-9]0?|[A-Za-z]+)$'
+      reverse_lookup: "`[a-z]*'?$"

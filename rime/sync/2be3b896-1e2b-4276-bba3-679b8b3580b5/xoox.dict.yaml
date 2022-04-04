@@ -1,0 +1,13 @@
+---
+name: xoox
+version: "2020.01.01"
+sort: by_weight
+use_preset_vocabulary: true
+import_tables:
+  - luna_pinyin
+  - xoox.extended_basic_a                                                       # 朙月拼音擴充詞庫－基本
+  - xoox.extended_basic_b                                                       # 朙月拼音擴充詞庫－漢語大詞典
+  - xoox.extended_basic_c                                                       # 朙月拼音擴充詞庫－詩詞
+  - xoox.extended_sougou_engineering_01                                         # 搜狗拼音细胞词库－计算机词汇大全【官方推荐】
+  - xoox.extended_sougou_engineering_02                                         # 搜狗拼音细胞词库－开发大神专用词库【官方推荐】
+...

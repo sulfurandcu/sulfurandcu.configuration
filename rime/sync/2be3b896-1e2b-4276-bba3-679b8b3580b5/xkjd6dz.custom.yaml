@@ -1,0 +1,8 @@
+# 键道双拼·单字
+
+patch:
+  schema:
+    schema_id: xkjd6dz
+    name: 键道双拼·单字
+    dependencies:
+      - xkjd6cx

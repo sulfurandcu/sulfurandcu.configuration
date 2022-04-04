@@ -1,0 +1,52 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.14.3
+  generator: "Rime::SwitcherSettings"
+  modified_time: "Wed Jan  1 00:00:00 2020"
+  rime_version: 1.5.3
+patch:
+  schema_list:
+    - {schema: double_pinyin_bopomofo}
+    - {schema: luna_pinyin}
+    - {schema: combo_pinyin}
+    - {schema: kana}
+    - {schema: double_pinyin_flypy}
+    - {schema: xkjd6}
+#   - {schema: xkjd6dz}
+#   - {schema: xkjd6_bj}
+#   - {schema: xkjd6cx}
+    - {schema: luna_pinyin_simp}
+    - {schema: luna_pinyin_tw}
+#   - {schema: luna_pinyin_fluency}
+
+  switcher:
+    caption: 0.方案選單
+    hotkeys:
+      - F4
+    save_options:
+      - full_shape
+      - ascii_punct
+      - simplification
+      - extended_charset
+      - zh_hant
+      - zh_hans
+      - zh_hant_tw
+    fold_options: true
+    abbreviate_options: true
+    option_list_separator: '／'
+
+  menu:
+    page_size: 5
+
+#  key_binder:
+#    bindings:
+#      # commonly used paging keys
+#      - { when: composing, accept: ISO_Left_Tab, send: Page_Up }
+#      - { when: composing, accept: Shift+Tab, send: Page_Up }
+#      - { when: composing, accept: Tab, send: Page_Down }
+#      - { when: has_menu, accept: minus, send: Page_Up }
+#      - { when: has_menu, accept: equal, send: Page_Down }
+#      - { when: paging, accept: comma, send: Page_Up }
+#      - { when: has_menu, accept: period, send: Page_Down }
+#      - { when: paging, accept: bracketleft, send: Page_Up }
+#      - { when: has_menu, accept: bracketright, send: Page_Down }

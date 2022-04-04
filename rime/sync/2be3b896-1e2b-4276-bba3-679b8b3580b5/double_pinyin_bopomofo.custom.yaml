@@ -1,0 +1,91 @@
+# 注音双拼
+
+patch:
+  schema:
+    schema_id: double_pinyin_bopomofo
+    name: 注音双拼
+
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中文, 西文 ]
+    - name: full_shape
+      states: [ 半角, 全角 ]
+    - name: simplification
+      states: [ 漢字, 汉字 ]
+    - name: ascii_punct
+      states: [ 。，, ．， ]
+
+  translator:
+    dictionary: xoox #luna_pinyin.extended #luna_pinyin
+    prism: double_pinyin_bopomofo
+    preedit_format:
+      - xform/([dtnlgkhvuirzcs])o/$1uo/
+      - xform/(\w)g/$1eng/
+      - xform/(\w)h/$1ang/
+      - xform/([aoe])\1(\w)/$1$2/
+
+      - xform/ys/yiau/
+      - xform/yz/yiou/
+      - xform/yd/yian/
+      - xform/yl/yien/
+      - xform/yg/yieng/
+      - xform/wr/wai/
+      - xform/wc/wei/
+      - xform/wd/wan/
+      - xform/wl/wen/
+      - xform/wt/wang/
+      - xform/wn/weng/
+      - xform/([iuv])r/$1ai/
+      - xform/([iuv])c/$1ei/
+      - xform/([iuv])s/$1au/
+      - xform/([iuv])z/$1ou/
+      - xform/([iuv])d/$1an/
+      - xform/([iuv])l/$1en/
+
+      - xform/([bpmfdtnljqxy])n/$1ieng/
+      - xform/([gkhiuvrzcs])n/$1uai/
+      - xform/([jqxnly])t/$1iang/
+      - xform/(\w)t/$1uei/
+      - xform/([jqxnly])m/$1üe/
+      - xform/(\w)m/$1uang/
+      - xform/([jqxy])p/$1üeng/
+      - xform/(\w)p/$1ueng/
+      - xform/([gkhvuirzcs])k/$1ua/
+      - xform/(\w)k/$1ia/
+
+      - xform/(\w)q/$1ai/
+      - xform/(\w)x/$1ei/
+      - xform/(\w)j/$1au/
+      - xform/(\w)v/$1ou/
+      - xform/(\w)y/$1an/
+      - xform/(\w)w/$1en/
+      - xform/(\w)c/$1iê/
+      - xform/(\w)s/$1iau/
+      - xform/(\w)z/$1iou/
+      - xform/(\w)d/$1ian/
+      - xform/(\w)l/$1ien/
+      - xform/(\w)f/$1uan/
+      - xform/(\w)b/$1uen/
+
+      - xform/([jqxy])u/$1ü/
+      - xform/([jqxnly])r/$1ü/
+
+      - xform/(^|[ '])i/$1zh/
+      - xform/(^|[ '])u/$1ch/
+      - xform/(^|[ '])v/$1sh/
+
+  punctuator:
+    import_preset: alternative
+
+  key_binder:
+    import_preset: default
+    bindings:
+      - { when: always, accept: Shift+space, toggle: full_shape }
+      - { when: always, accept: Control+Shift+space, toggle: simplification }
+
+  recognizer:
+    import_preset: default
+    patterns:
+      punct: '^ii([0-9]0?|[A-Za-z]+)$'
+      reverse_lookup: "`[a-z]*'?$"

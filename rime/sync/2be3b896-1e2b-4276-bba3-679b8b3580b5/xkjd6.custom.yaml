@@ -1,0 +1,8 @@
+# 键道双拼
+
+patch:
+  schema:
+    schema_id: xkjd6
+    name: 键道双拼
+    dependencies:
+      - xkjd6cx

@@ -1,0 +1,39 @@
+# 朙月拼音·正體
+
+patch:
+  schema:
+    schema_id: luna_pinyin_tw
+    name: 朙月拼音·正體
+
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中文, 西文 ]
+    - name: full_shape
+      states: [ 半角, 全角 ]
+    - name: ascii_punct
+      states: [ 。，, ．， ]
+    - name: zh_tw
+      reset: 1
+
+  translator:
+    dictionary: xoox #luna_pinyin.extended #luna_pinyin
+    prism: luna_pinyin_tw
+    preedit_format:
+      - xform/([nl])v/$1ü/
+      - xform/([nl])ue/$1üe/
+      - xform/([jqxy])v/$1u/
+
+  punctuator:
+    import_preset: alternative
+
+  key_binder:
+    import_preset: default
+    bindings:
+      - { when: always, accept: Shift+space, toggle: full_shape }
+
+
+  recognizer:
+    import_preset: default
+    patterns:
+      punct: '^ii([0-9]0?|[A-Za-z]+)$'
